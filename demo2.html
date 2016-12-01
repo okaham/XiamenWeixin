@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
+    <style>
+      html, body, #map {
+        height: 100%; width: 100%; margin: 0; padding: 0; 
+      }
+    </style>
+
+    <script src="https://js.arcgis.com/3.17/"></script>
+    <script>
+      var map;    
+      require(["esri/map", "esri/layers/ArcGISTiledMapServiceLayer", "esri/symbols/PictureMarkerSymbol", "esri/graphic",
+	  "esri/layers/GraphicsLayer", "dojo/domReady!"],
+        function(Map, ArcGISTiledMapServiceLayer,PictureMarkerSymbol,Graphic,GraphicsLayer) {
+        map = new Map("map");
+        var basemap = new ArcGISTiledMapServiceLayer("http://cache1.arcgisonline.cn/arcgis/rest/services/ChinaOnlineCommunity/MapServer");
+        map.addLayer(basemap);     
+
+
+
+
+  $.getJSON('json/picture.json',function(data){
+    alert(data);
+    $.each(data,function(entryIndex,entry){
+       alert(entry.longitude);
+    var x = entry.longitude;
+    var y = entry.latitude; 
+    var pt = new esri.geometry.Point(x,y);
+    map.centerAndZoom(pt,11);    
+    var pt1 = new esri.geometry.Point(x,y);
+    var pictureMarkerSymbol = new PictureMarkerSymbol('src=\'image/'+entry.name+'\'', 60,45);
+    var pictureMarkerSymbol2 = new PictureMsarkerSymbol('image/white.jpg', 65,50);
+    var attr = {"Xcoord":pt1.x,"Ycoord":pt1.y,"Plant":"Mesa Mint"};
+    var infoTemplate = new esri.InfoTemplate('entry.address',"Latitude: ${Ycoord} <br/>Longitude: ${Xcoord} <br/>  Plant Name:${Plant}");
+
+    var graphic = new Graphic(pt1,pictureMarkerSymbol,attr,infoTemplate);     
+    var graphic2 = new Graphic(pt1,pictureMarkerSymbol2,null,null);     
+    var  graphicsLayer = new  GraphicsLayer();        
+    graphicsLayer.add(graphic2);  
+    graphicsLayer.add(graphic);  
+    map.addLayer(graphicsLayer);
+  }
+    });
+
+
+
+        });
+    </script>    
+
+
+
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
+</html>

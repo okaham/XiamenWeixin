@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<picture>
+<name>1.jpg</name>
+<address>Gulangyu Island</address>
+<longitude>118.0693817139</longitude>
+<latitude>24.4437115852</latitude>
+</picture>
+<picture>
+<name>2.jpg</name>
+<address>Xiamen University</address>
+<longitude>118.0979633331</longitude>
+<latitude>24.4368352948</latitude>
+</picture>
+<picture>
+<name>3.jpg</name>
+<address>Huandao Road</address>
+<longitude>118.1685590744</longitude>
+<latitude>24.4480481436</latitude>
+</picture>
+<picture>
+<name>4.jpg</name>
+<address>Bay Park</address>
+<longitude>118.0765056610</longitude>
+<latitude>24.4731659918</latitude>
+</picture>
+<picture>
+<name>5.jpg</name>
+<address>Haicang Bridge</address>
+<longitude>118.0655193329</longitude>
+<latitude>24.4944907438</latitude>
+</picture>
+<picture>
+<name>6.jpg</name>
+<address>Botanic Garden</address>
+<longitude>118.1043148041</longitude>
+<latitude>24.4472277251</latitude>
+</picture>
+<picture>
+<name>7.jpg</name>
+<address>Haicang Zoo</address>
+<longitude>118.0255222321</longitude>
+<latitude>24.4571505242</latitude>
+</picture>
+<picture>
+<name>8.jpg</name>
+<address>Tongan Studio City</address>
+<longitude>118.1643319130</longitude>
+<latitude>24.7427779082</latitude>
+</picture>
+<picture>
+<name>9.jpg</name>
+<address>Yundang Lake</address>
+<longitude>118.1001949310</longitude>
+<latitude>24.4774624779</latitude>
+</picture>
+<picture>
+<name>10.jpg</name>
+<address>Software Park</address>
+<longitude>118.1824636459</longitude>
+<latitude>24.4871095079</latitude>
+</picture>
+
+</root>

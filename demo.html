@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title>Demo--- read XML / JSON files</title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <script src="script/jquery-1.4.1.min.js" type="text/javascript"></script>
+  <script>
+
+  function a2_click() 
+{
+	$.getJSON('json/picture.json',function(data){  
+		var html = '<table>';  
+		$.each(data,function(entryIndex,entry){  
+			html += '<tr><td><image style=\'width:200px\' src=\'image/'+entry.name+'\'></td><td>'+entry.address+'</td><td>['+entry.name+']</td>'; 
+		}); 
+		html += '</table>';  
+		
+		$("#div2").html(html);
+		return false;
+    });
+
+}
+function a3_click()
+{
+        $.get('xml/Pictures.xml',function(data){  	       
+            var s="";  
+            $(data).find('picture').each(function(i){ 	
+			    
+                var name=$(this).children('name').text();  
+                var address=$(this).children('address').text(); 
+                s+="<b>"+address+"&nbsp;["+name+"]<b><br>"+"<image style='width:200px' src='image/"+name+"'><br><br>";  
+            });  			
+            $('#div2').html(s);  
+        });  
+}
+
+  </script>
+ </head>
+
+ <body>
+  <ul id="div1">         
+        <li><a id="a2" href="javascript:a2_click()">show json</a></li>  
+        <li><a id="a3" href="javascript:a3_click()">show xml</a></li>  
+    </ul>  
+        <p>Show Content:</p>  
+    <div id ="div2"></div>  
+ </body>
+</html>
